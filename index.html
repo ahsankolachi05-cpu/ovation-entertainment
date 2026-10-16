@@ -1,0 +1,1517 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>OVATION — Luxury Live Entertainment | Concept Website</title>
+<meta name="description" content="Concept website for a luxury live entertainment agency placing bands, soloists, DJs, speakers and celebrity artists with five-star hotels and cruise lines across the Middle East, South East Asia and worldwide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script>if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("anim");}</script>
+<style>
+  :root{
+    color-scheme: light dark;
+    --gold:#c9a45c;
+    --gold-bright:#e8cf8f;
+    --gold-deep:#9a7c3e;
+    --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:"Jost", "Segoe UI", Helvetica, Arial, sans-serif;
+
+    --bg:#f7f3ea;
+    --bg-2:#efe8d8;
+    --surface:#fffdf7;
+    --surface-2:#f1e9d8;
+    --ink:#1c1a16;
+    --ink-soft:#4d4638;
+    --muted:#7c7261;
+    --line:rgba(120,96,44,.28);
+    --line-soft:rgba(120,96,44,.16);
+    --gold-text:#8a6c2a;
+    --card-shadow:0 18px 44px rgba(60,45,15,.12);
+    --nav-bg:rgba(10,10,12,.82);
+    --nav-ink:#f3ecdb;
+
+    --hero-bg:#070708;
+    --hero-ink:#f6efdd;
+    --hero-soft:#cfc6ae;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0a0a0c;
+      --bg-2:#0e0e11;
+      --surface:#131317;
+      --surface-2:#191920;
+      --ink:#f3ecdb;
+      --ink-soft:#d8d0ba;
+      --muted:#a39a83;
+      --line:rgba(201,164,92,.34);
+      --line-soft:rgba(201,164,92,.16);
+      --gold-text:#dcbc7a;
+      --card-shadow:0 20px 48px rgba(0,0,0,.55);
+      --nav-bg:rgba(8,8,10,.86);
+      --nav-ink:#f3ecdb;
+    }
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--sans);
+    font-weight:300;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img, svg{ display:block; }
+  a{ color:inherit; }
+  ::selection{ background:var(--gold); color:#141005; }
+
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px); }
+  section{ position:relative; }
+  .section-pad{ padding:clamp(72px,10vw,128px) 0; }
+
+  /* ---------- Typography helpers ---------- */
+  .eyebrow{
+    font-size:.78rem; letter-spacing:.32em; text-transform:uppercase;
+    color:var(--gold-text); font-weight:500; margin:0 0 18px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{ content:""; width:38px; height:1px; background:var(--gold); flex:none; }
+  .eyebrow.center{ justify-content:center; }
+  .eyebrow.center::after{ content:""; width:38px; height:1px; background:var(--gold); flex:none; }
+  h1,h2,h3{ font-family:var(--serif); font-weight:600; line-height:1.08; margin:0; color:var(--ink); }
+  h2{ font-size:clamp(2.1rem,4.4vw,3.4rem); margin-bottom:20px; }
+  h2 em, h1 em{ font-style:italic; color:var(--gold-text); font-weight:500; }
+  .lede{ font-size:clamp(1.02rem,1.4vw,1.16rem); color:var(--ink-soft); max-width:640px; }
+  .lede.center{ margin-left:auto; margin-right:auto; }
+  .centre{ text-align:center; }
+  .sample-tag{
+    display:inline-block; font-size:.64rem; letter-spacing:.22em; text-transform:uppercase;
+    font-weight:600; color:var(--gold-deep);
+    border:1px solid var(--line); border-radius:999px; padding:4px 11px;
+    background:color-mix(in srgb, var(--gold) 10%, transparent); vertical-align:middle;
+  }
+  .section-note{ font-size:.82rem; color:var(--muted); font-style:italic; margin-top:14px; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--sans); font-size:.82rem; font-weight:500;
+    letter-spacing:.22em; text-transform:uppercase; text-decoration:none;
+    padding:16px 30px; border-radius:2px; cursor:pointer;
+    transition:transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .btn-gold{ background:linear-gradient(160deg, var(--gold-bright), var(--gold) 55%, var(--gold-deep)); color:#171205; border:1px solid transparent; }
+  .btn-gold:hover{ transform:translateY(-2px); }
+  .btn-ghost{ background:transparent; color:var(--hero-ink); border:1px solid rgba(232,207,143,.55); }
+  .btn-ghost:hover{ border-color:var(--gold-bright); transform:translateY(-2px); }
+  .btn-outline{ background:transparent; color:var(--ink); border:1px solid var(--line); }
+  .btn-outline:hover{ border-color:var(--gold); transform:translateY(-2px); }
+  .btn.small{ padding:11px 20px; font-size:.72rem; }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed; inset:0 0 auto 0; z-index:100;
+    background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{ background:var(--nav-bg); backdrop-filter:blur(14px); border-bottom-color:rgba(201,164,92,.22); box-shadow:0 10px 34px rgba(0,0,0,.35); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:20px; height:76px; }
+  .brand{ text-decoration:none; color:var(--nav-ink); display:flex; flex-direction:column; line-height:1; }
+  .brand-name{ font-family:var(--serif); font-size:1.72rem; font-weight:700; letter-spacing:.34em; }
+  .brand-name span{ color:var(--gold-bright); }
+  .brand-sub{ font-size:.56rem; letter-spacing:.44em; text-transform:uppercase; color:rgba(243,236,219,.62); margin-top:5px; font-weight:400; }
+  .nav-links{ display:flex; align-items:center; gap:34px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    color:var(--nav-ink); text-decoration:none; font-size:.76rem; font-weight:400;
+    letter-spacing:.24em; text-transform:uppercase; position:relative; padding:6px 0;
+  }
+  .nav-links a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold-bright); transition:width .3s ease; }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ border:1px solid rgba(232,207,143,.6); color:var(--gold-bright); padding:11px 22px; }
+  .nav-cta:hover{ background:rgba(201,164,92,.14); }
+  .nav-cta::after{ display:none; }
+  .burger{
+    display:none; background:none; border:1px solid rgba(232,207,143,.5); border-radius:2px;
+    width:46px; height:46px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:6px;
+  }
+  .burger span{ display:block; width:20px; height:1.5px; background:var(--gold-bright); transition:transform .3s ease, opacity .3s ease; }
+  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+  .mobile-menu{
+    display:none; background:var(--nav-bg); backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,164,92,.22); padding:10px 0 22px;
+  }
+  .mobile-menu.open{ display:block; }
+  .mobile-menu a{
+    display:block; padding:13px clamp(20px,4vw,48px); color:var(--nav-ink); text-decoration:none;
+    font-size:.8rem; letter-spacing:.24em; text-transform:uppercase;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh; display:flex; align-items:center; justify-content:center;
+    background:var(--hero-bg); color:var(--hero-ink); text-align:center; overflow:hidden;
+    padding:150px 0 110px;
+  }
+  .hero-art{ position:absolute; inset:0; pointer-events:none; }
+  .hero-glow{
+    position:absolute; left:50%; top:56%; width:min(1100px,140vw); aspect-ratio:1.6;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at center, rgba(201,164,92,.22) 0%, rgba(201,164,92,.07) 42%, transparent 68%);
+  }
+  .hero-rays{ position:absolute; inset:0; opacity:.5;
+    background:
+      linear-gradient(104deg, transparent 38%, rgba(232,207,143,.05) 46%, transparent 56%),
+      linear-gradient(76deg, transparent 42%, rgba(232,207,143,.04) 50%, transparent 60%);
+  }
+  .hero-rings{ position:absolute; left:50%; top:58%; transform:translate(-50%,-50%); width:min(880px,120vw); opacity:.5; }
+  .hero-rings circle{ fill:none; stroke:rgba(201,164,92,.35); stroke-width:1; }
+  .hero-rings .dash{ stroke-dasharray:3 9; animation:spin 70s linear infinite; transform-origin:center; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .hero-floor{
+    position:absolute; left:0; right:0; bottom:0; height:34%;
+    background:linear-gradient(to top, rgba(201,164,92,.12), transparent 70%);
+  }
+  .hero-content{ position:relative; max-width:920px; padding:0 24px; }
+  .hero-kicker{
+    font-size:.74rem; letter-spacing:.42em; text-transform:uppercase; color:var(--gold-bright);
+    margin:0 0 26px; font-weight:400;
+  }
+  .hero h1{ color:var(--hero-ink); font-size:clamp(3rem,8.4vw,6.4rem); font-weight:600; }
+  .hero h1 em{ color:var(--gold-bright); }
+  .hero-sub{ color:var(--hero-soft); font-size:clamp(1.02rem,1.8vw,1.24rem); max-width:680px; margin:28px auto 0; font-weight:300; }
+  .hero-ctas{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:44px; }
+  .hero-meta{ margin-top:52px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .hero-meta span{
+    font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; color:rgba(243,236,219,.66);
+    border:1px solid rgba(201,164,92,.3); border-radius:999px; padding:7px 15px;
+  }
+  .scroll-cue{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); color:rgba(232,207,143,.7); animation:cue 2.6s ease-in-out infinite; }
+  @keyframes cue{ 0%,100%{ transform:translate(-50%,0); opacity:.55; } 50%{ transform:translate(-50%,8px); opacity:1; } }
+
+  /* ---------- Trusted strip ---------- */
+  .trusted{ background:var(--bg-2); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding:34px 0; }
+  .trusted p{ text-align:center; font-size:.7rem; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); margin:0 0 20px; font-weight:500; }
+  .trusted-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 44px; }
+  .trusted-row span{ font-family:var(--serif); font-size:1.18rem; font-style:italic; color:var(--ink-soft); white-space:nowrap; }
+
+  /* ---------- Stats ---------- */
+  .stats{ background:var(--bg); }
+  .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line-soft); }
+  .stat{ padding:44px 28px; text-align:center; }
+  .stat + .stat{ border-left:1px solid var(--line-soft); }
+  .stat-num{ font-family:var(--serif); font-size:clamp(2.4rem,4vw,3.4rem); font-weight:600; color:var(--gold-text); line-height:1; }
+  .stat-label{ font-size:.72rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:12px; font-weight:400; }
+
+  /* ---------- About ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(36px,6vw,84px); align-items:center; }
+  .about-art{
+    position:relative; aspect-ratio:4/5; max-height:620px; width:100%;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 88%, rgba(201,164,92,.34), transparent 65%),
+      linear-gradient(168deg, #17171c 0%, #0b0b0e 58%, #131007 100%);
+    border:1px solid var(--line-soft); overflow:hidden;
+  }
+  .about-art svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .about-caption{
+    position:absolute; left:22px; bottom:20px; right:22px;
+    font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; color:rgba(243,236,219,.6);
+    display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+  }
+  .about-points{ list-style:none; margin:30px 0 0; padding:0; display:grid; gap:18px; }
+  .about-points li{ display:flex; gap:16px; align-items:flex-start; }
+  .about-points .tick{
+    flex:none; width:26px; height:26px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--gold-text); margin-top:2px;
+  }
+  .about-points strong{ font-weight:500; color:var(--ink); }
+  .about-points p{ margin:2px 0 0; color:var(--ink-soft); font-size:.96rem; }
+  .region-chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .region-chips span{ font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:8px 16px; color:var(--ink-soft); font-weight:400; }
+
+  /* ---------- Categories ---------- */
+  .alt-bg{ background:var(--bg-2); }
+  .cat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .cat-card{
+    background:var(--surface); border:1px solid var(--line-soft); padding:38px 32px 34px;
+    box-shadow:var(--card-shadow); position:relative; overflow:hidden;
+    transition:transform .35s ease, border-color .35s ease;
+  }
+  .cat-card::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(420px 200px at 20% -10%, rgba(201,164,92,.16), transparent 70%);
+    opacity:0; transition:opacity .35s ease;
+  }
+  .cat-card:hover{ transform:translateY(-5px); border-color:var(--line); }
+  .cat-card:hover::before{ opacity:1; }
+  .cat-icon{
+    width:58px; height:58px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--gold-text); margin-bottom:22px;
+    background:color-mix(in srgb, var(--gold) 7%, transparent);
+  }
+  .cat-card h3{ font-size:1.55rem; margin-bottom:10px; }
+  .cat-card p{ margin:0; color:var(--ink-soft); font-size:.95rem; }
+  .cat-card .cat-meta{ margin-top:18px; font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+
+  /* ---------- Steps ---------- */
+  .steps-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .step{
+    border:1px solid var(--line-soft); background:var(--surface); padding:40px 32px;
+    box-shadow:var(--card-shadow); position:relative;
+  }
+  .step-num{
+    font-family:var(--serif); font-style:italic; font-size:3rem; line-height:1;
+    color:transparent; -webkit-text-stroke:1px var(--gold); margin-bottom:22px;
+  }
+  .step h3{ font-size:1.5rem; margin-bottom:10px; }
+  .step p{ margin:0; color:var(--ink-soft); font-size:.95rem; }
+  .step ul{ margin:14px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+  .step ul li{ font-size:.9rem; color:var(--ink-soft); padding-left:20px; position:relative; }
+  .step ul li::before{ content:""; position:absolute; left:0; top:.62em; width:9px; height:1px; background:var(--gold); }
+  .steps-cta{ text-align:center; margin-top:44px; }
+
+  /* Artist page preview */
+  .artist-preview{
+    margin-top:64px; border:1px solid var(--line); background:var(--surface);
+    box-shadow:var(--card-shadow); display:grid; grid-template-columns:.9fr 1.1fr; overflow:hidden;
+  }
+  .ap-visual{
+    min-height:340px; position:relative;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 92%, rgba(201,164,92,.4), transparent 66%),
+      linear-gradient(165deg,#1a1a20,#0a0a0d 60%,#171106);
+    display:flex; align-items:flex-end; padding:28px;
+  }
+  .ap-visual .mono{
+    font-family:var(--serif); font-size:5.2rem; line-height:.9; color:rgba(232,207,143,.9); font-style:italic;
+  }
+  .ap-body{ padding:40px 42px; }
+  .ap-body h3{ font-size:1.9rem; margin:10px 0 6px; }
+  .ap-role{ font-size:.7rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-text); font-weight:500; }
+  .ap-body p{ color:var(--ink-soft); font-size:.95rem; margin:12px 0 0; }
+  .ap-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .ap-tags span{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; border:1px solid var(--line-soft); border-radius:999px; padding:6px 12px; color:var(--ink-soft); }
+  .ap-media{ display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .ap-media span{
+    font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; font-weight:500;
+    border:1px solid var(--line); padding:9px 14px; color:var(--gold-text);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+
+  /* ---------- Artist directory ---------- */
+  .directory{ margin-top:76px; border-top:1px solid var(--line-soft); padding-top:64px; }
+  .dir-controls{ display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; }
+  .dir-controls input[type="search"]{
+    flex:1 1 260px; font-family:var(--sans); font-size:1rem; font-weight:300; color:var(--ink);
+    background:var(--surface); border:1px solid var(--line-soft); padding:14px 16px; border-radius:2px;
+  }
+  .dir-controls select{
+    font-family:var(--sans); font-size:.95rem; font-weight:300; color:var(--ink);
+    background:var(--surface); border:1px solid var(--line-soft); padding:14px 16px; border-radius:2px;
+  }
+  .dir-controls input:focus, .dir-controls select:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .act-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:30px; }
+  .act-card{
+    background:var(--surface); border:1px solid var(--line-soft); box-shadow:var(--card-shadow);
+    padding:30px 26px; display:flex; flex-direction:column;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .act-card:hover{ transform:translateY(-4px); border-color:var(--line); }
+  .act-mono{
+    width:64px; height:64px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+    font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--gold-text);
+    background:
+      radial-gradient(circle at 50% 88%, rgba(201,164,92,.35), transparent 70%),
+      linear-gradient(160deg,#1b1b21,#0c0c0f);
+    color:#e8cf8f;
+  }
+  .act-card h3{ font-size:1.42rem; margin-bottom:4px; }
+  .act-cat{ font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-text); font-weight:500; }
+  .act-card p{ font-size:.9rem; color:var(--ink-soft); margin:12px 0 0; flex:1; }
+  .act-base{ font-size:.78rem; color:var(--muted); margin-top:14px; letter-spacing:.08em; text-transform:uppercase; }
+  .act-card .btn{ margin-top:20px; justify-content:center; }
+  .dir-empty{ display:none; text-align:center; color:var(--muted); padding:44px 20px 10px; font-style:italic; }
+
+  /* ---------- Artist page modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200; background:rgba(5,5,7,.78); backdrop-filter:blur(6px);
+    display:none; align-items:flex-start; justify-content:center; overflow-y:auto; padding:40px 18px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--surface); border:1px solid var(--line); max-width:760px; width:100%;
+    box-shadow:0 40px 90px rgba(0,0,0,.5); position:relative;
+  }
+  .modal-hero{
+    padding:44px 44px 30px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 110%, rgba(201,164,92,.4), transparent 66%),
+      linear-gradient(165deg,#1a1a20,#0a0a0d 60%,#171106);
+    color:#f3ecdb;
+  }
+  .modal-hero h3{ color:#f6efdd; font-size:2.3rem; margin:14px 0 4px; }
+  .modal-hero .act-cat{ color:#e8cf8f; }
+  .modal-close{
+    position:absolute; top:16px; right:16px; width:42px; height:42px; border-radius:50%;
+    border:1px solid rgba(232,207,143,.5); background:rgba(0,0,0,.3); color:#e8cf8f;
+    font-size:1.15rem; cursor:pointer; line-height:1;
+  }
+  .modal-body{ padding:34px 44px 40px; }
+  .modal-body h4{ font-family:var(--serif); font-size:1.35rem; margin:26px 0 10px; color:var(--ink); }
+  .modal-body h4:first-child{ margin-top:0; }
+  .modal-body p{ color:var(--ink-soft); font-size:.96rem; margin:0; }
+  .rep-list{ columns:2; column-gap:34px; margin:0; padding:0; list-style:none; }
+  .rep-list li{ font-size:.92rem; color:var(--ink-soft); padding:5px 0 5px 18px; position:relative; break-inside:avoid; }
+  .rep-list li::before{ content:""; position:absolute; left:0; top:.85em; width:9px; height:1px; background:var(--gold); }
+  .modal-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+
+  /* ---------- Upload fields ---------- */
+  .upload-group{ border:1px dashed var(--line); padding:20px; margin-bottom:18px; background:color-mix(in srgb, var(--gold) 4%, transparent); }
+  .upload-group > p{ margin:0 0 6px; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-text); font-weight:600; }
+  .upload-group .field:last-child{ margin-bottom:0; }
+  .field input[type="file"]{ padding:10px 12px; font-size:.9rem; }
+  .file-name{ font-size:.78rem; color:var(--muted); margin-top:6px; font-style:italic; min-height:1em; }
+
+  /* ---------- Jobs ---------- */
+  .jobs-filters{ display:flex; flex-wrap:wrap; gap:10px; margin-top:40px; }
+  .chip{
+    font-family:var(--sans); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+    padding:10px 18px; border-radius:999px; border:1px solid var(--line); background:transparent;
+    color:var(--ink-soft); cursor:pointer; transition:all .25s ease;
+  }
+  .chip.active, .chip:hover{ background:var(--gold); border-color:var(--gold); color:#171205; }
+  .jobs-list{ display:grid; gap:16px; margin-top:30px; }
+  .job{
+    display:grid; grid-template-columns:1fr auto; gap:8px 28px; align-items:center;
+    background:var(--surface); border:1px solid var(--line-soft); box-shadow:var(--card-shadow);
+    padding:28px 32px;
+  }
+  .job h3{ font-size:1.45rem; }
+  .job-meta{ display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:8px; font-size:.86rem; color:var(--muted); }
+  .job-meta b{ font-weight:500; color:var(--ink-soft); }
+  .job .sample-tag{ margin-left:10px; }
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .testi{ background:var(--surface); border:1px solid var(--line-soft); box-shadow:var(--card-shadow); padding:38px 32px; }
+  .testi .stars{ color:var(--gold-text); letter-spacing:6px; font-size:.9rem; margin-bottom:18px; }
+  .testi blockquote{ margin:0; font-family:var(--serif); font-size:1.28rem; font-style:italic; line-height:1.45; color:var(--ink); }
+  .testi figcaption{ margin-top:22px; font-size:.74rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+  .testi figcaption b{ display:block; color:var(--ink-soft); font-size:.8rem; margin-bottom:3px; }
+
+  /* ---------- Support strip ---------- */
+  .support-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:56px; }
+  .support-card{ border:1px solid var(--line-soft); padding:36px 30px; background:var(--surface); box-shadow:var(--card-shadow); }
+  .support-card h3{ font-size:1.4rem; margin:16px 0 8px; }
+  .support-card p{ margin:0; color:var(--ink-soft); font-size:.94rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{ display:grid; grid-template-columns:.92fr 1.08fr; gap:clamp(36px,5vw,72px); margin-top:10px; }
+  .contact-item{ padding:20px 0; border-bottom:1px solid var(--line-soft); }
+  .contact-item:first-child{ padding-top:6px; }
+  .contact-item h4{ margin:0 0 6px; font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-text); font-weight:600; font-family:var(--sans); }
+  .contact-item p{ margin:0; font-family:var(--serif); font-size:1.4rem; color:var(--ink); }
+  .contact-item small{ color:var(--muted); font-size:.8rem; }
+  .form-card{ background:var(--surface); border:1px solid var(--line); box-shadow:var(--card-shadow); padding:38px 36px; }
+  .form-tabs{ display:flex; border:1px solid var(--line); margin-bottom:28px; }
+  .form-tabs button{
+    flex:1; font-family:var(--sans); font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; font-weight:500;
+    padding:14px 10px; background:transparent; border:0; color:var(--ink-soft); cursor:pointer; transition:all .25s ease;
+  }
+  .form-tabs button.active{ background:var(--gold); color:#171205; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); font-weight:500; margin-bottom:8px; }
+  .field input, .field select, .field textarea{
+    width:100%; font-family:var(--sans); font-size:1rem; font-weight:300; color:var(--ink);
+    background:var(--bg); border:1px solid var(--line-soft); padding:13px 15px; border-radius:2px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--gold); outline-offset:1px; border-color:transparent; }
+  .field textarea{ min-height:110px; resize:vertical; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
+  .form-note{ font-size:.8rem; color:var(--muted); margin-top:16px; font-style:italic; }
+  .form-status{ display:none; margin-top:18px; border:1px solid var(--line); background:color-mix(in srgb, var(--gold) 9%, transparent); padding:14px 16px; font-size:.9rem; color:var(--ink-soft); }
+  .form-status.show{ display:block; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:#08080a; color:#b9b09a; border-top:1px solid rgba(201,164,92,.25); }
+  .footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:44px; padding:72px 0 48px; }
+  .footer-brand{ font-family:var(--serif); font-size:2rem; letter-spacing:.32em; color:#f3ecdb; }
+  .footer-brand span{ color:var(--gold-bright); }
+  footer p{ font-size:.9rem; margin:14px 0 0; max-width:360px; }
+  footer h5{ font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-bright); margin:6px 0 16px; font-weight:600; }
+  .footer-links{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .footer-links a{ color:#b9b09a; text-decoration:none; font-size:.92rem; }
+  .footer-links a:hover{ color:var(--gold-bright); }
+  .footer-bottom{ border-top:1px solid rgba(201,164,92,.16); padding:24px 0 30px; display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; font-size:.78rem; color:#8d8570; }
+  .concept-note{
+    margin:0 0 48px; border:1px dashed rgba(201,164,92,.4); padding:18px 22px;
+    font-size:.84rem; color:#c9c0a8; background:rgba(201,164,92,.05);
+  }
+  .concept-note strong{ color:var(--gold-bright); letter-spacing:.14em; text-transform:uppercase; font-size:.72rem; display:block; margin-bottom:6px; }
+
+  /* ---------- Reveal animation (transform only — content is never hidden) ---------- */
+  html.anim .reveal{ transform:translateY(26px); transition:transform .8s cubic-bezier(.22,.61,.36,1); }
+  html.anim .reveal.in{ transform:none; }
+  html.anim .reveal.d1{ transition-delay:.08s; } html.anim .reveal.d2{ transition-delay:.16s; } html.anim .reveal.d3{ transition-delay:.24s; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1020px){
+    .cat-grid{ grid-template-columns:repeat(2,1fr); }
+    .act-grid{ grid-template-columns:repeat(2,1fr); }
+    .testi-grid, .support-grid, .steps-grid{ grid-template-columns:1fr 1fr; }
+    .stats-grid{ grid-template-columns:1fr 1fr; }
+    .stat:nth-child(3){ border-left:0; }
+    .stat{ border-top:1px solid var(--line-soft); }
+    .stat:nth-child(-n+2){ border-top:0; }
+    .about-grid, .contact-grid, .artist-preview{ grid-template-columns:1fr; }
+    .about-art{ max-height:480px; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:760px){
+    .nav-links{ display:none; }
+    .burger{ display:flex; }
+    .cat-grid, .testi-grid, .support-grid, .steps-grid, .act-grid{ grid-template-columns:1fr; }
+    .modal-hero, .modal-body{ padding-left:24px; padding-right:24px; }
+    .rep-list{ columns:1; }
+    .hero{ padding:130px 0 100px; }
+    .hero-ctas .btn{ width:100%; justify-content:center; }
+    .job{ grid-template-columns:1fr; }
+    .job .btn{ justify-self:start; }
+    .form-row{ grid-template-columns:1fr; }
+    .form-card{ padding:28px 22px; }
+    .footer-grid{ grid-template-columns:1fr; }
+    .ap-body{ padding:30px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ transform:none; transition:none; }
+    .hero-rings .dash, .scroll-cue{ animation:none; }
+    .btn, .cat-card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Ovation Entertainment — concept home">
+      <span class="brand-name">OVAT<span>I</span>ON</span>
+      <span class="brand-sub">International Entertainment</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#roster">Roster</a></li>
+        <li><a href="#artists">For Artists</a></li>
+        <li><a href="#clients">For Clients</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a class="nav-cta" href="#contact">Enquire</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#roster">Roster</a>
+    <a href="#artists">For Artists</a>
+    <a href="#clients">For Clients</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#contact">Enquire</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-art" aria-hidden="true">
+    <div class="hero-glow"></div>
+    <div class="hero-rays"></div>
+    <svg class="hero-rings" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+      <circle cx="300" cy="300" r="120" />
+      <circle cx="300" cy="300" r="190" class="dash" />
+      <circle cx="300" cy="300" r="262" />
+      <circle cx="300" cy="300" r="298" class="dash" />
+    </svg>
+    <div class="hero-floor"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-kicker">Luxury Live Entertainment &middot; Worldwide</p>
+    <h1>The World&rsquo;s Stage <em>Awaits</em></h1>
+    <p class="hero-sub">We place exceptional live entertainers with five-star hotels, luxury resorts and the world&rsquo;s leading cruise lines &mdash; across the Middle East, South East Asia and the open sea.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#artists">I&rsquo;m an Artist</a>
+      <a class="btn btn-ghost" href="#clients">I&rsquo;m Booking Talent</a>
+    </div>
+    <div class="hero-meta" aria-label="Service regions">
+      <span>Five-Star Hotels</span>
+      <span>Cruise Lines</span>
+      <span>Middle East</span>
+      <span>South East Asia</span>
+    </div>
+  </div>
+  <svg class="scroll-cue" width="22" height="34" viewBox="0 0 22 34" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="20" height="32" rx="10" stroke="currentColor"/>
+    <circle cx="11" cy="10" r="2.4" fill="currentColor"/>
+  </svg>
+</section>
+
+<!-- ================= TRUSTED STRIP ================= -->
+<div class="trusted">
+  <div class="wrap">
+    <p>Trusted by world-class venues</p>
+    <div class="trusted-row">
+      <span>Five-Star Hotel Groups</span>
+      <span>Leading Cruise Lines</span>
+      <span>Luxury Resort Brands</span>
+      <span>Private Members&rsquo; Clubs</span>
+      <span>Award-Winning Venues</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= STATS ================= -->
+<section class="stats section-pad" aria-label="Agency figures">
+  <div class="wrap">
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat-num"><span data-count="480">0</span>+</div>
+        <div class="stat-label">Entertainers on Roster</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span data-count="32">0</span></div>
+        <div class="stat-label">Countries Placed In</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span data-count="96">0</span>%</div>
+        <div class="stat-label">Client Rebooking Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span data-count="24">0</span>h</div>
+        <div class="stat-label">Agent Response Time</div>
+      </div>
+    </div>
+    <p class="section-note centre">Sample figures shown for design purposes &mdash; confirmed agency statistics will be published at launch.</p>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section-pad" id="about" style="padding-top:0;">
+  <div class="wrap about-grid">
+    <div class="about-art reveal" role="img" aria-label="Abstract golden stage illustration: a spotlight over concentric sound rings">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e8cf8f" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#e8cf8f" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <polygon points="200,30 90,470 310,470" fill="url(#beam)"/>
+        <circle cx="200" cy="392" r="118" fill="none" stroke="#c9a45c" stroke-opacity=".5"/>
+        <circle cx="200" cy="392" r="82" fill="none" stroke="#c9a45c" stroke-opacity=".65" stroke-dasharray="3 8"/>
+        <circle cx="200" cy="392" r="46" fill="none" stroke="#e8cf8f" stroke-opacity=".85"/>
+        <circle cx="200" cy="392" r="7" fill="#e8cf8f"/>
+        <circle cx="200" cy="30" r="5" fill="#e8cf8f"/>
+        <g stroke="#c9a45c" stroke-opacity=".28">
+          <line x1="40" y1="120" x2="360" y2="120"/>
+          <line x1="40" y1="210" x2="360" y2="210"/>
+          <line x1="40" y1="300" x2="360" y2="300"/>
+        </g>
+      </svg>
+      <div class="about-caption"><span>Est. London</span><span>Performing Worldwide</span></div>
+    </div>
+    <div class="reveal d1">
+      <p class="eyebrow">Our Story</p>
+      <h2>By Performers, <em>For Performers</em></h2>
+      <p class="lede">OVATION was founded by entertainers who spent years on the very stages we now book &mdash; resident bands in five-star hotel lounges, showbands at sea, cabaret acts across three continents. We know what a great contract looks like from both sides of the footlights, and we built the agency we always wished existed.</p>
+      <ul class="about-points">
+        <li>
+          <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><strong>Artists first, always</strong><p>Transparent contracts, dedicated artist pages and a team that has lived the lifestyle &mdash; not just booked it.</p></div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><strong>Venues get certainty</strong><p>Every act is auditioned, referenced and presentation-ready before it ever appears on the roster.</p></div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><strong>One agent, start to finish</strong><p>From first enquiry to opening night, a named agent manages your booking personally.</p></div>
+        </li>
+      </ul>
+      <div class="region-chips" aria-label="Regions we serve">
+        <span>Middle East</span><span>South East Asia</span><span>Worldwide Cruise Itineraries</span><span>United Kingdom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="section-pad alt-bg" id="roster">
+  <div class="wrap">
+    <div class="centre reveal">
+      <p class="eyebrow center">The Roster</p>
+      <h2>Every Act, <em>One Address</em></h2>
+      <p class="lede center">From intimate duos to headline celebrity cameos &mdash; browse the roster, watch the showreels and enquire directly. Your agent handles everything from there.</p>
+    </div>
+
+    <div class="cat-grid">
+      <article class="cat-card reveal">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="17" r="3"/><circle cx="19" cy="15" r="3"/><path d="M10 17V6l9-2v11M10 10l9-2"/></svg></div>
+        <h3>Live Bands</h3>
+        <p>Four, five and six-piece bands &mdash; resident showbands, party bands and elegant lounge ensembles for hotels and cruise main stages.</p>
+        <div class="cat-meta">4 &middot; 5 &middot; 6 Piece</div>
+      </article>
+
+      <article class="cat-card reveal d1">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v10"/><circle cx="12" cy="16.5" r="3.5"/><path d="M5 8c2-2.4 4.4-3.6 7-3.6S17 5.6 19 8"/></svg></div>
+        <h3>Trios</h3>
+        <p>Jazz trios, string trios and vocal trios that bring refinement to cocktail hours, fine dining and private events.</p>
+        <div class="cat-meta">Jazz &middot; Strings &middot; Vocal</div>
+      </article>
+
+      <article class="cat-card reveal d2">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M3.5 20c.6-3 2.4-4.5 4.5-4.5S11.9 17 12.5 20M11.5 20c.6-3 2.4-4.5 4.5-4.5s3.9 1.5 4.5 4.5"/></svg></div>
+        <h3>Duos</h3>
+        <p>Piano-and-voice, acoustic and multi-instrumental duos &mdash; the most versatile format in luxury hospitality.</p>
+        <div class="cat-meta">Acoustic &middot; Piano &middot; Multi-Genre</div>
+      </article>
+
+      <article class="cat-card reveal">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <h3>Solo Musicians &amp; Entertainers</h3>
+        <p>Pianists, harpists, saxophonists, vocalists and one-person shows &mdash; solo artists who command a room alone.</p>
+        <div class="cat-meta">Piano &middot; Strings &middot; Vocals</div>
+      </article>
+
+      <article class="cat-card reveal d1">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg></div>
+        <h3>DJs</h3>
+        <p>Resident and guest DJs for rooftop bars, beach clubs, lounges and late-night venues &mdash; every genre, every energy.</p>
+        <div class="cat-meta">Residencies &middot; Guest Sets</div>
+      </article>
+
+      <article class="cat-card reveal d2">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 10a8 8 0 0 1 16 0v2a5 5 0 0 1-5 5h-1"/><circle cx="9" cy="11" r=".6" fill="currentColor"/><circle cx="15" cy="11" r=".6" fill="currentColor"/><path d="M9.5 14.5c1.6 1.2 3.4 1.2 5 0"/></svg></div>
+        <h3>Comedians</h3>
+        <p>Stand-up, musical comedy and cabaret comedy acts for cruise theatres, gala evenings and corporate audiences.</p>
+        <div class="cat-meta">Stand-Up &middot; Cabaret &middot; Corporate</div>
+      </article>
+
+      <article class="cat-card reveal">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4l1.8 3.9 4.2.5-3.1 2.9.8 4.2L12 13.4l-3.7 2.1.8-4.2L6 8.4l4.2-.5L12 4Z"/></svg></div>
+        <h3>Children&rsquo;s Entertainers</h3>
+        <p>Family-show specialists, character performers and interactive entertainers for resorts and family cruise programmes.</p>
+        <div class="cat-meta">Family Shows &middot; Characters</div>
+      </article>
+
+      <article class="cat-card reveal d1">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6M2 20h20"/></svg></div>
+        <h3>After-Dinner Speakers</h3>
+        <p>Compelling speakers for gala dinners, awards nights and corporate events &mdash; sport, business, adventure and beyond.</p>
+        <div class="cat-meta">Gala &middot; Awards &middot; Corporate</div>
+      </article>
+
+      <article class="cat-card reveal d2">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.1 4.6 5 .6-3.7 3.4 1 4.9L12 14l-4.4 2.5 1-4.9L4.9 8.2l5-.6L12 3Z"/></svg></div>
+        <h3>Celebrity Cameos</h3>
+        <p>Famous artists for headline cameo appearances &mdash; the name on the poster that fills the room and the press release.</p>
+        <div class="cat-meta">Headline Appearances</div>
+      </article>
+
+      <article class="cat-card reveal">
+        <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 10v4M9 7v10M13 4v16M17 8v8M21 11v2"/></svg></div>
+        <h3>Equipment &amp; Lighting Hire</h3>
+        <p>Professional sound, backline and lighting packages &mdash; supplied, installed and crewed wherever your event takes place.</p>
+        <div class="cat-meta">Sound &middot; Backline &middot; Lighting</div>
+      </article>
+    </div>
+
+    <!-- Artist directory -->
+    <div class="directory reveal">
+      <p class="eyebrow">Featured Acts</p>
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);">Search the <em>Roster</em></h2>
+      <p class="lede">Find the perfect act by name, style or category &mdash; then open their dedicated artist page and enquire directly.</p>
+
+      <div class="dir-controls">
+        <input type="search" id="actSearch" placeholder="Search acts, styles, genres&hellip;" aria-label="Search artists" />
+        <select id="actFilter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="band">Bands</option>
+          <option value="trio">Trios</option>
+          <option value="duo">Duos</option>
+          <option value="solo">Solo artists</option>
+          <option value="dj">DJs</option>
+          <option value="comedy">Comedians</option>
+          <option value="family">Children&rsquo;s entertainers</option>
+          <option value="speaker">After-dinner speakers</option>
+        </select>
+      </div>
+
+      <div class="act-grid" id="actGrid"></div>
+      <p class="dir-empty" id="dirEmpty">No sample acts match your search &mdash; try another name, style or category.</p>
+      <p class="section-note">Artist profiles shown are samples created to demonstrate the searchable roster and dedicated artist pages &mdash; real acts will appear here after launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOR ARTISTS ================= -->
+<section class="section-pad" id="artists">
+  <div class="wrap">
+    <div class="centre reveal">
+      <p class="eyebrow center">For Artists</p>
+      <h2>Your Talent, <em>On the World Stage</em></h2>
+      <p class="lede center">Three steps between you and contracts with five-star hotels and leading cruise lines &mdash; and once approved, a dedicated page that sells you while you sleep.</p>
+    </div>
+
+    <div class="steps-grid">
+      <article class="step reveal">
+        <div class="step-num" aria-hidden="true">01</div>
+        <h3>Upload Your Promo Material</h3>
+        <p>Create your profile and upload everything a booker needs to say yes:</p>
+        <ul>
+          <li>Showreel &amp; live performance videos</li>
+          <li>Professional biography</li>
+          <li>Complete repertoire list</li>
+          <li>Promotional photographs</li>
+        </ul>
+      </article>
+      <article class="step reveal d1">
+        <div class="step-num" aria-hidden="true">02</div>
+        <h3>Apply for Contracts</h3>
+        <p>Browse live vacancies on the jobs board and apply in one click. You receive an automated acknowledgement instantly, and our team reviews every application personally.</p>
+        <ul>
+          <li>Hotel residencies &amp; cruise contracts</li>
+          <li>Instant application confirmation</li>
+          <li>Personal feedback from our agents</li>
+        </ul>
+      </article>
+      <article class="step reveal d2">
+        <div class="step-num" aria-hidden="true">03</div>
+        <h3>Your Dedicated Artist Page</h3>
+        <p>Approved acts receive their own page on the roster &mdash; videos, biography, repertoire and photos, presented to venues and cruise lines worldwide.</p>
+        <ul>
+          <li>One link to share with any booker</li>
+          <li>Updated whenever you are</li>
+          <li>Seen by clients across the globe</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="artist-preview reveal">
+      <div class="ap-visual" aria-hidden="true">
+        <div class="mono">VT</div>
+      </div>
+      <div class="ap-body">
+        <span class="sample-tag">Sample Artist Page</span>
+        <h3>The Velvet Tones</h3>
+        <div class="ap-role">Five-Piece Showband &middot; Available Worldwide</div>
+        <p>A sample of how an approved artist page will look &mdash; biography, repertoire highlights and promotional media presented in one elegant place, ready to send to any hotel or cruise booker.</p>
+        <div class="ap-tags" aria-label="Sample repertoire highlights">
+          <span>Soul &amp; Motown</span><span>Disco Classics</span><span>Modern Chart</span><span>Jazz Standards</span><span>200+ Song Repertoire</span>
+        </div>
+        <div class="ap-media">
+          <span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4V2Z" fill="currentColor"/></svg> Watch Showreel</span>
+          <span>View Full Repertoire</span>
+          <span>Enquire About This Act</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="steps-cta reveal">
+      <a class="btn btn-gold" href="#contact" data-goto-form="artist">Apply as an Artist</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOR CLIENTS ================= -->
+<section class="section-pad alt-bg" id="clients">
+  <div class="wrap">
+    <div class="centre reveal">
+      <p class="eyebrow center">For Clients</p>
+      <h2>Booking Talent, <em>Beautifully Simple</em></h2>
+      <p class="lede center">Hotels, resorts and cruise lines: find the perfect act, send one enquiry, and a dedicated agent takes it from there.</p>
+    </div>
+
+    <div class="steps-grid">
+      <article class="step reveal">
+        <div class="step-num" aria-hidden="true">01</div>
+        <h3>Search the Roster</h3>
+        <p>Browse every category of act freely &mdash; bands, soloists, DJs, speakers and celebrity cameos &mdash; with showreels and full repertoire lists.</p>
+      </article>
+      <article class="step reveal d1">
+        <div class="step-num" aria-hidden="true">02</div>
+        <h3>Send an Enquiry</h3>
+        <p>Tell us the act, the venue and the dates. Your enquiry is acknowledged automatically the moment it is sent &mdash; no chasing, no waiting.</p>
+      </article>
+      <article class="step reveal d2">
+        <div class="step-num" aria-hidden="true">03</div>
+        <h3>Your Agent Calls You</h3>
+        <p>A dedicated agent contacts you personally to refine the details, confirm availability and manage the booking through to opening night.</p>
+      </article>
+    </div>
+
+    <div class="steps-cta reveal">
+      <a class="btn btn-gold" href="#contact" data-goto-form="client">Start an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOBS ================= -->
+<section class="section-pad" id="jobs">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Jobs Board</p>
+      <h2>Current <em>Opportunities</em></h2>
+      <p class="lede">A preview of the live contracts board. Registered artists will apply directly from each listing; new vacancies are announced the moment they open.</p>
+    </div>
+
+    <div class="jobs-filters reveal" role="group" aria-label="Filter sample jobs by category">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="bands">Bands</button>
+      <button class="chip" data-filter="solo">Solo &amp; Duos</button>
+      <button class="chip" data-filter="dj">DJs</button>
+      <button class="chip" data-filter="family">Family Acts</button>
+    </div>
+
+    <div class="jobs-list">
+      <article class="job reveal" data-cat="bands">
+        <div>
+          <h3>Resident Six-Piece Showband <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Five-star hotel, Dubai</span><span><b>Contract:</b> 6 months</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+
+      <article class="job reveal" data-cat="solo">
+        <div>
+          <h3>Solo Pianist &amp; Vocalist <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Luxury cruise itinerary, Singapore</span><span><b>Contract:</b> 4 months</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+
+      <article class="job reveal" data-cat="dj">
+        <div>
+          <h3>Resident DJ, Rooftop Lounge <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Five-star resort, Abu Dhabi</span><span><b>Contract:</b> 3 months</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+
+      <article class="job reveal" data-cat="bands">
+        <div>
+          <h3>Four-Piece Party Band <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Cruise entertainment programme, South East Asia</span><span><b>Contract:</b> 5 months</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+
+      <article class="job reveal" data-cat="family">
+        <div>
+          <h3>Children&rsquo;s Entertainer &amp; Family Show Host <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Family resort, Phuket</span><span><b>Contract:</b> Season</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+
+      <article class="job reveal" data-cat="solo">
+        <div>
+          <h3>Acoustic Duo, Lounge Residency <span class="sample-tag">Sample Listing</span></h3>
+          <div class="job-meta"><span><b>Venue:</b> Five-star hotel, Kuala Lumpur</span><span><b>Contract:</b> 6 months</span><span><b>Start:</b> Sample dates</span></div>
+        </div>
+        <a class="btn btn-outline small" href="#contact" data-goto-form="artist">Apply</a>
+      </article>
+    </div>
+    <p class="section-note">These are sample listings shown to demonstrate the jobs board &mdash; genuine vacancies will appear here once the agency launches.</p>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section-pad alt-bg" id="stories">
+  <div class="wrap">
+    <div class="centre reveal">
+      <p class="eyebrow center">Kind Words</p>
+      <h2>From the <em>Stage &amp; the Suite</em></h2>
+    </div>
+
+    <div class="testi-grid">
+      <figure class="testi reveal">
+        <div class="stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;The band transformed our lounge programme. Guests plan their evenings around them &mdash; and so do we.&rdquo;</blockquote>
+        <figcaption><b>Entertainment Director</b>Five-Star Hotel Group &middot; Placeholder Testimonial</figcaption>
+      </figure>
+      <figure class="testi reveal d1">
+        <div class="stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;As performers ourselves, having an agency that truly understands life on contract made all the difference.&rdquo;</blockquote>
+        <figcaption><b>Resident Showband</b>On Contract, Middle East &middot; Placeholder Testimonial</figcaption>
+      </figure>
+      <figure class="testi reveal d2">
+        <div class="stars" aria-label="Five star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&ldquo;One enquiry, one call, and our entire season&rsquo;s entertainment was booked. Effortless from start to finish.&rdquo;</blockquote>
+        <figcaption><b>Cruise Entertainment Manager</b>Leading Cruise Line &middot; Placeholder Testimonial</figcaption>
+      </figure>
+    </div>
+    <p class="section-note centre">Testimonials shown are placeholders for design purposes and will be replaced with genuine client words at launch.</p>
+  </div>
+</section>
+
+<!-- ================= SUPPORT ================= -->
+<section class="section-pad" id="support">
+  <div class="wrap">
+    <div class="centre reveal">
+      <p class="eyebrow center">Beyond the Booking</p>
+      <h2>Support That <em>Never Sleeps</em></h2>
+      <p class="lede center">The performance is only the beginning. Behind every contract sits a team keeping artists visible and venues connected.</p>
+    </div>
+
+    <div class="support-grid">
+      <article class="support-card reveal">
+        <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M7 21h10"/></svg></div>
+        <h3>Fully Managed Platform</h3>
+        <p>Artist applications, approvals and dedicated pages are handled through one elegant system &mdash; with automated acknowledgements at every step, so nothing is ever left waiting.</p>
+      </article>
+      <article class="support-card reveal d1">
+        <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.9 5.2 3.9 8.5s-1.3 6.1-3.9 8.5c-2.6-2.4-3.9-5.2-3.9-8.5s1.3-6.1 3.9-8.5Z"/></svg></div>
+        <h3>Social Media, Handled</h3>
+        <p>Our team manages the agency&rsquo;s social platforms with regular, polished content &mdash; showcasing artists, celebrating placements and keeping the roster in front of the industry.</p>
+      </article>
+      <article class="support-card reveal d2">
+        <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
+        <h3>Global Outreach</h3>
+        <p>We introduce the roster directly to hotels and cruise companies around the world, building the relationships that turn first enquiries into long-term residencies.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section-pad alt-bg" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Begin the <em>Conversation</em></h2>
+      <p class="lede">Artists applying for contracts and venues booking talent &mdash; one form reaches the right desk, and a dedicated agent responds personally.</p>
+    </div>
+
+    <div class="contact-grid" style="margin-top:44px;">
+      <div class="reveal">
+        <div class="contact-item">
+          <h4>Email</h4>
+          <p>enquiries@ovation.example</p>
+          <small>Placeholder address &mdash; to be confirmed at launch</small>
+        </div>
+        <div class="contact-item">
+          <h4>Telephone</h4>
+          <p>+44 (0)20 0000 0000</p>
+          <small>Placeholder number &mdash; to be confirmed at launch</small>
+        </div>
+        <div class="contact-item">
+          <h4>Office</h4>
+          <p>London, United Kingdom</p>
+          <small>Full address to be confirmed at launch</small>
+        </div>
+        <div class="contact-item">
+          <h4>Hours</h4>
+          <p>Mon&ndash;Fri, 9am&ndash;6pm GMT</p>
+          <small>Enquiries acknowledged automatically, around the clock</small>
+        </div>
+      </div>
+
+      <div class="form-card reveal d1">
+        <div class="form-tabs" role="tablist" aria-label="Enquiry type">
+          <button id="tabArtist" class="active" role="tab" aria-selected="true">Artist Application</button>
+          <button id="tabClient" role="tab" aria-selected="false">Client Enquiry</button>
+        </div>
+        <form id="enquiryForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="fName">Full name</label>
+              <input id="fName" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="fEmail">Email</label>
+              <input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="fType" id="typeLabel">Act type</label>
+              <select id="fType" name="type">
+                <option>4, 5 or 6-piece band</option>
+                <option>Trio</option>
+                <option>Duo</option>
+                <option>Solo musician / entertainer</option>
+                <option>DJ</option>
+                <option>Comedian</option>
+                <option>Children&rsquo;s entertainer</option>
+                <option>After-dinner speaker</option>
+                <option>Celebrity cameo</option>
+                <option>Equipment &amp; lighting hire</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fDetail" id="detailLabel">Contract of interest</label>
+              <input id="fDetail" name="detail" type="text" placeholder="e.g. Resident band, Dubai" />
+            </div>
+          </div>
+          <div class="upload-group" id="uploadGroup">
+            <p>Your Promotional Material</p>
+            <div class="field">
+              <label for="fShowreel">Showreel / performance video</label>
+              <input id="fShowreel" type="file" accept="video/*" />
+              <div class="file-name" data-for="fShowreel"></div>
+            </div>
+            <div class="field">
+              <label for="fPhotos">Promotional photographs</label>
+              <input id="fPhotos" type="file" accept="image/*" multiple />
+              <div class="file-name" data-for="fPhotos"></div>
+            </div>
+            <div class="field">
+              <label for="fRepertoire">Complete repertoire list (PDF or document)</label>
+              <input id="fRepertoire" type="file" accept=".pdf,.doc,.docx,.txt" />
+              <div class="file-name" data-for="fRepertoire"></div>
+            </div>
+            <div class="field">
+              <label for="fVideoLink">Or paste a video link (YouTube / Vimeo)</label>
+              <input id="fVideoLink" type="url" placeholder="https://&hellip;" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="fMsg" id="msgLabel">Tell us about your act</label>
+            <textarea id="fMsg" name="message" placeholder="Experience, repertoire highlights, links to videos and photos&hellip;"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold small" id="submitBtn">Send Application</button>
+            <button type="button" class="btn btn-outline small" id="copyBtn">Copy Details</button>
+          </div>
+          <p class="form-note" id="formNote">This opens your email app addressed to our placeholder inbox. In the live build, sending triggers an instant automated acknowledgement and alerts your dedicated agent directly.</p>
+          <div class="form-status" id="formStatus" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ARTIST PAGE MODAL ================= -->
+<div class="modal-overlay" id="artistModal" role="dialog" aria-modal="true" aria-labelledby="modalActName">
+  <div class="modal">
+    <div class="modal-hero">
+      <button class="modal-close" id="modalClose" aria-label="Close artist page">&times;</button>
+      <span class="sample-tag">Sample Artist Page</span>
+      <h3 id="modalActName">Act Name</h3>
+      <div class="act-cat" id="modalActCat">Category</div>
+    </div>
+    <div class="modal-body">
+      <h4>Biography</h4>
+      <p id="modalActBio"></p>
+      <h4>Repertoire Highlights</h4>
+      <ul class="rep-list" id="modalActRep"></ul>
+      <h4>Promotional Media</h4>
+      <div class="ap-media" style="margin-top:14px;">
+        <span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4V2Z" fill="currentColor"/></svg> Showreel Video</span>
+        <span>Photo Gallery</span>
+        <span>Full Repertoire (PDF)</span>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-gold small" id="modalEnquire">Enquire About This Act</button>
+        <button class="btn btn-outline small" id="modalBack">Back to Roster</button>
+      </div>
+      <p class="section-note">Sample profile for demonstration &mdash; media, biography and repertoire shown are illustrative.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">OVAT<span>I</span>ON</div>
+        <p>Luxury live entertainment for five-star hotels, resorts and cruise lines &mdash; across the Middle East, South East Asia and worldwide.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#roster">The Roster</a></li>
+          <li><a href="#artists">For Artists</a></li>
+          <li><a href="#clients">For Clients</a></li>
+          <li><a href="#jobs">Jobs Board</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="#contact">Artist Applications</a></li>
+          <li><a href="#contact">Client Enquiries</a></li>
+          <li><a href="#contact">Equipment &amp; Lighting Hire</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="concept-note">
+      <strong>Concept Website</strong>
+      OVATION is a placeholder brand created for this design concept &mdash; the company&rsquo;s final name, contact details and content will be confirmed before launch. All statistics, testimonials, job listings and contact details shown are sample placeholder content for demonstration only. No real venues or cruise lines are named or endorsed.
+    </p>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ovation International Entertainment (concept). All rights reserved.</span>
+      <span>Designed in London &middot; Performing worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* --- Sticky nav state --- */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+
+  /* --- Mobile menu --- */
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("mobileMenu");
+  burger.addEventListener("click", function(){
+    var open = menu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  menu.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){
+      menu.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /* --- Reveal on scroll --- */
+  var revealEls = document.querySelectorAll(".reveal");
+  if(reduceMotion || !("IntersectionObserver" in window)){
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px 12% 0px" });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* --- Count-up stats --- */
+  function countUp(el){
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    if(reduceMotion){ el.textContent = target; return; }
+    var start = null, dur = 1600;
+    function tick(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var counters = document.querySelectorAll("[data-count]");
+  if("IntersectionObserver" in window && !reduceMotion){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ countUp(entry.target); cio.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el){ cio.observe(el); });
+  } else {
+    counters.forEach(countUp);
+  }
+
+  /* --- Jobs filter --- */
+  var chips = document.querySelectorAll(".chip");
+  var jobs = document.querySelectorAll(".job");
+  chips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      chips.forEach(function(c){ c.classList.remove("active"); });
+      chip.classList.add("active");
+      var f = chip.getAttribute("data-filter");
+      jobs.forEach(function(job){
+        var show = f === "all" || job.getAttribute("data-cat") === f;
+        job.style.display = show ? "" : "none";
+      });
+    });
+  });
+
+  /* --- Enquiry form: artist / client tabs --- */
+  var tabArtist = document.getElementById("tabArtist");
+  var tabClient = document.getElementById("tabClient");
+  var typeLabel = document.getElementById("typeLabel");
+  var typeSelect = document.getElementById("fType");
+  var detailLabel = document.getElementById("detailLabel");
+  var detailInput = document.getElementById("fDetail");
+  var msgLabel = document.getElementById("msgLabel");
+  var msgInput = document.getElementById("fMsg");
+  var uploadGroup = document.getElementById("uploadGroup");
+  var submitBtn = document.getElementById("submitBtn");
+  var mode = "artist";
+
+  var artistTypes = ["4, 5 or 6-piece band","Trio","Duo","Solo musician / entertainer","DJ","Comedian","Children's entertainer","After-dinner speaker","Celebrity cameo","Equipment & lighting hire"];
+  var clientTypes = ["Live band (4, 5 or 6-piece)","Trio","Duo","Solo musician / entertainer","DJ","Comedian","Children's entertainer","After-dinner speaker","Celebrity cameo","Equipment & lighting hire","Not sure yet — advise me"];
+
+  function setOptions(list){
+    typeSelect.innerHTML = "";
+    list.forEach(function(t){
+      var o = document.createElement("option");
+      o.textContent = t;
+      typeSelect.appendChild(o);
+    });
+  }
+  function setMode(next){
+    mode = next;
+    var artist = mode === "artist";
+    tabArtist.classList.toggle("active", artist);
+    tabClient.classList.toggle("active", !artist);
+    tabArtist.setAttribute("aria-selected", artist ? "true" : "false");
+    tabClient.setAttribute("aria-selected", !artist ? "true" : "false");
+    setOptions(artist ? artistTypes : clientTypes);
+    typeLabel.textContent = artist ? "Act type" : "Entertainment required";
+    detailLabel.textContent = artist ? "Contract of interest" : "Venue & location";
+    detailInput.placeholder = artist ? "e.g. Resident band, Dubai" : "e.g. Five-star hotel, Abu Dhabi";
+    msgLabel.textContent = artist ? "Tell us about your act" : "Tell us about your event";
+    msgInput.placeholder = artist
+      ? "Experience, repertoire highlights, links to videos and photos…"
+      : "Dates, audience, atmosphere you want to create…";
+    uploadGroup.style.display = artist ? "" : "none";
+    submitBtn.textContent = artist ? "Send Application" : "Send Enquiry";
+    hideStatus();
+  }
+  tabArtist.addEventListener("click", function(){ setMode("artist"); });
+  tabClient.addEventListener("click", function(){ setMode("client"); });
+
+  /* Deep links from CTAs ("Apply" / "Enquire" buttons) */
+  document.querySelectorAll("[data-goto-form]").forEach(function(link){
+    link.addEventListener("click", function(){
+      setMode(link.getAttribute("data-goto-form"));
+    });
+  });
+
+  /* --- Form handling: build a mailto (no server in this concept) --- */
+  var form = document.getElementById("enquiryForm");
+  var status = document.getElementById("formStatus");
+  function showStatus(msg){
+    status.textContent = msg;
+    status.classList.add("show");
+  }
+  function hideStatus(){ status.classList.remove("show"); status.textContent = ""; }
+
+  function fileNames(id){
+    var input = document.getElementById(id);
+    if(!input || !input.files || !input.files.length) return "";
+    var names = [];
+    for(var i = 0; i < input.files.length; i++) names.push(input.files[i].name);
+    return names.join(", ");
+  }
+  /* Show chosen file names beneath each upload field */
+  ["fShowreel","fPhotos","fRepertoire"].forEach(function(id){
+    var input = document.getElementById(id);
+    var label = document.querySelector('.file-name[data-for="' + id + '"]');
+    input.addEventListener("change", function(){
+      var names = fileNames(id);
+      label.textContent = names ? "Selected: " + names : "";
+    });
+  });
+
+  function gather(){
+    var d = {
+      kind: mode === "artist" ? "Artist Application" : "Client Enquiry",
+      name: document.getElementById("fName").value.trim(),
+      email: document.getElementById("fEmail").value.trim(),
+      type: typeSelect.value,
+      detail: detailInput.value.trim(),
+      message: msgInput.value.trim()
+    };
+    if(mode === "artist"){
+      d.showreel = fileNames("fShowreel");
+      d.photos = fileNames("fPhotos");
+      d.repertoireFile = fileNames("fRepertoire");
+      d.videoLink = document.getElementById("fVideoLink").value.trim();
+    }
+    return d;
+  }
+  function summaryText(d){
+    var text = d.kind + "\n" +
+      "Name: " + d.name + "\n" +
+      "Email: " + d.email + "\n" +
+      (mode === "artist" ? "Act type: " : "Entertainment required: ") + d.type + "\n" +
+      (mode === "artist" ? "Contract of interest: " : "Venue & location: ") + (d.detail || "—") + "\n\n" +
+      d.message;
+    if(mode === "artist"){
+      text += "\n\nPromotional material:" +
+        "\n- Showreel video: " + (d.showreel || "to follow") +
+        "\n- Promotional photos: " + (d.photos || "to follow") +
+        "\n- Repertoire list: " + (d.repertoireFile || "to follow") +
+        (d.videoLink ? "\n- Video link: " + d.videoLink : "");
+    }
+    return text;
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = gather();
+    if(!d.name || !d.email || d.email.indexOf("@") === -1){
+      showStatus("Please add your name and a valid email address so our agent can reach you.");
+      return;
+    }
+    var subject = encodeURIComponent("OVATION — " + d.kind + " from " + d.name);
+    var body = encodeURIComponent(summaryText(d));
+    var mail = document.createElement("a");
+    mail.href = "mailto:enquiries@ovation.example?subject=" + subject + "&body=" + body;
+    document.body.appendChild(mail);
+    mail.click();
+    document.body.removeChild(mail);
+    if(mode === "artist"){
+      showStatus("Thank you, " + d.name + " — your application is ready to send from your email app. In the live build, this moment triggers an instant automated acknowledgement confirming your promotional material has been received, and our team reviews every application personally.");
+    } else {
+      showStatus("Thank you, " + d.name + " — your enquiry is ready to send from your email app. In the live build, you would receive an automated acknowledgement instantly, and a dedicated agent would be alerted to contact you directly.");
+    }
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", function(){
+    var d = gather();
+    var text = summaryText(d);
+    function done(){ showStatus("Copied. Paste it into an email to enquiries@ovation.example (placeholder address) whenever you are ready."); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ showStatus(text); });
+    } else {
+      showStatus(text);
+    }
+  });
+
+  /* --- Artist directory: sample acts, search, filter, dedicated pages --- */
+  var acts = [
+    { name:"The Velvet Tones", mono:"VT", cat:"band", catLabel:"Five-Piece Showband", base:"Available Worldwide",
+      blurb:"A polished five-piece showband moving effortlessly from Motown classics to modern chart anthems.",
+      bio:"The Velvet Tones are a five-piece showband built for five-star stages: front-line vocals, a razor-tight rhythm section and a repertoire that reads a room and fills a dancefloor. Sample biography shown for demonstration.",
+      rep:["Soul & Motown medley","Disco classics","Modern chart hits","Jazz standards","Swing & big band","200+ song repertoire"] },
+    { name:"The Meridian Six", mono:"M6", cat:"band", catLabel:"Six-Piece Band", base:"Middle East & Worldwide",
+      blurb:"A high-energy six-piece with brass, dual vocalists and a stadium-sized party set.",
+      bio:"The Meridian Six bring a full brass section and two lead vocalists to headline residencies and gala nights. Sample biography shown for demonstration.",
+      rep:["Party anthems","Funk & soul","Rock classics","Latin set","Arabic fusion medley","Requests all night"] },
+    { name:"Nocturne Trio", mono:"NT", cat:"trio", catLabel:"Jazz Trio", base:"Hotels & Private Events",
+      blurb:"Piano, double bass and drums — understated jazz for cocktail hours and fine dining.",
+      bio:"Nocturne Trio specialise in the golden hour: elegant, unobtrusive jazz that lets conversation breathe. Sample biography shown for demonstration.",
+      rep:["Great American Songbook","Bossa nova","Modern jazz arrangements","Film themes","Dinner jazz sets","Bespoke requests"] },
+    { name:"Harlow & June", mono:"HJ", cat:"duo", catLabel:"Acoustic Duo", base:"Resorts & Lounges",
+      blurb:"Two voices, one guitar, endless harmonies — the duo every lounge residency wishes it had.",
+      bio:"Harlow & June strip beloved songs back to voice and guitar, with harmonies that stop a room mid-sentence. Sample biography shown for demonstration.",
+      rep:["Acoustic pop","Country classics","Folk favourites","Mashups & medleys","First-dance requests","300+ song list"] },
+    { name:"Amara Keys", mono:"AK", cat:"solo", catLabel:"Solo Pianist & Vocalist", base:"Five-Star Lounges",
+      blurb:"A concert-trained pianist-vocalist whose residency sets become the hotel's signature sound.",
+      bio:"Amara Keys blends classical training with a soul singer's instinct, taking requests from Chopin to contemporary ballads. Sample biography shown for demonstration.",
+      rep:["Classical crossover","Soul ballads","Jazz standards","Contemporary piano pop","Guest requests","Themed evenings"] },
+    { name:"DJ Solenne", mono:"DS", cat:"dj", catLabel:"Resident DJ", base:"Rooftops & Beach Clubs",
+      blurb:"Sunset-to-late-night journeys across house, disco edits and open-format party sets.",
+      bio:"DJ Solenne reads rooftops like novels — warm sunset grooves building to full-throttle late-night energy. Sample biography shown for demonstration.",
+      rep:["Sunset house","Disco edits","Open-format party","Ibiza classics","Arabic house fusion","Silent disco sets"] },
+    { name:"Marcus Vale", mono:"MV", cat:"comedy", catLabel:"Stand-Up Comedian", base:"Cruise & Corporate",
+      blurb:"Clean, clever stand-up honed on cruise theatres and corporate galas across three continents.",
+      bio:"Marcus Vale delivers forty-five minutes of clean, observational comedy that plays beautifully to international audiences. Sample biography shown for demonstration.",
+      rep:["Clean stand-up set","Musical comedy","Audience interaction","Corporate hosting","Awards-night compère","Family-friendly matinees"] },
+    { name:"The Bubble Parade", mono:"BP", cat:"family", catLabel:"Children's Entertainers", base:"Family Resorts & Cruises",
+      blurb:"Interactive family shows, character meet-and-greets and mini-discos children talk about all year.",
+      bio:"The Bubble Parade create joyful, high-energy family entertainment — from breakfast character visits to full evening family shows. Sample biography shown for demonstration.",
+      rep:["Interactive family shows","Character appearances","Mini disco","Magic & bubbles","Storytelling sessions","Pool-party hosting"] },
+    { name:"Eleanor Whitfield", mono:"EW", cat:"speaker", catLabel:"After-Dinner Speaker", base:"Gala & Awards Nights",
+      blurb:"An adventurer and broadcaster whose after-dinner talks leave rooms inspired and applauding.",
+      bio:"Eleanor Whitfield speaks on adventure, resilience and curiosity — a headline after-dinner presence for gala and awards evenings. Sample biography shown for demonstration.",
+      rep:["Adventure & resilience","Travel storytelling","Host & compère","Charity auctions","Q&A sessions","Bespoke themes"] }
+  ];
+
+  var actGrid = document.getElementById("actGrid");
+  var actSearch = document.getElementById("actSearch");
+  var actFilter = document.getElementById("actFilter");
+  var dirEmpty = document.getElementById("dirEmpty");
+  var modal = document.getElementById("artistModal");
+  var currentAct = null;
+
+  function renderActs(){
+    var q = actSearch.value.trim().toLowerCase();
+    var f = actFilter.value;
+    actGrid.innerHTML = "";
+    var visible = 0;
+    acts.forEach(function(act, i){
+      var haystack = (act.name + " " + act.catLabel + " " + act.blurb + " " + act.rep.join(" ")).toLowerCase();
+      var show = (f === "all" || act.cat === f) && (q === "" || haystack.indexOf(q) !== -1);
+      if(!show) return;
+      visible++;
+      var card = document.createElement("article");
+      card.className = "act-card";
+      card.innerHTML =
+        '<div class="act-mono" aria-hidden="true"></div>' +
+        '<h3></h3><div class="act-cat"></div><p></p>' +
+        '<div class="act-base"></div>' +
+        '<span class="sample-tag" style="align-self:flex-start;margin-top:14px;">Sample Artist</span>' +
+        '<button class="btn btn-outline small" type="button">View Artist Page</button>';
+      card.querySelector(".act-mono").textContent = act.mono;
+      card.querySelector("h3").textContent = act.name;
+      card.querySelector(".act-cat").textContent = act.catLabel;
+      card.querySelector("p").textContent = act.blurb;
+      card.querySelector(".act-base").textContent = act.base;
+      card.querySelector("button").addEventListener("click", function(){ openAct(i); });
+      actGrid.appendChild(card);
+    });
+    dirEmpty.style.display = visible ? "none" : "block";
+  }
+  actSearch.addEventListener("input", renderActs);
+  actFilter.addEventListener("change", renderActs);
+  renderActs();
+
+  function openAct(i){
+    var act = acts[i];
+    currentAct = act;
+    document.getElementById("modalActName").textContent = act.name;
+    document.getElementById("modalActCat").textContent = act.catLabel + " · " + act.base;
+    document.getElementById("modalActBio").textContent = act.bio;
+    var rep = document.getElementById("modalActRep");
+    rep.innerHTML = "";
+    act.rep.forEach(function(item){
+      var li = document.createElement("li");
+      li.textContent = item;
+      rep.appendChild(li);
+    });
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    document.getElementById("modalClose").focus();
+  }
+  function closeAct(){
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  document.getElementById("modalClose").addEventListener("click", closeAct);
+  document.getElementById("modalBack").addEventListener("click", closeAct);
+  modal.addEventListener("click", function(e){ if(e.target === modal) closeAct(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && modal.classList.contains("open")) closeAct(); });
+  document.getElementById("modalEnquire").addEventListener("click", function(){
+    closeAct();
+    setMode("client");
+    if(currentAct) detailInput.value = currentAct.name + " (" + currentAct.catLabel + ")";
+    document.getElementById("contact").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    document.getElementById("fName").focus({ preventScroll:true });
+  });
+})();
+</script>
+</body>
+</html>
