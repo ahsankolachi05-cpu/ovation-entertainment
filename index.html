@@ -20,10 +20,10 @@
     --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
     --sans:"Jost", "Segoe UI", Helvetica, Arial, sans-serif;
 
-    --bg:#f7f3ea;
-    --bg-2:#efe8d8;
-    --surface:#fffdf7;
-    --surface-2:#f1e9d8;
+    --bg:#ffffff;
+    --bg-2:#faf7f0;
+    --surface:#ffffff;
+    --surface-2:#fdf9ef;
     --ink:#1c1a16;
     --ink-soft:#4d4638;
     --muted:#7c7261;
@@ -40,18 +40,20 @@
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#0a0a0c;
-      --bg-2:#0e0e11;
-      --surface:#131317;
-      --surface-2:#191920;
-      --ink:#f3ecdb;
-      --ink-soft:#d8d0ba;
-      --muted:#a39a83;
-      --line:rgba(201,164,92,.34);
-      --line-soft:rgba(201,164,92,.16);
-      --gold-text:#dcbc7a;
-      --card-shadow:0 20px 48px rgba(0,0,0,.55);
-      --nav-bg:rgba(8,8,10,.86);
+      /* Keep the requested black / gold / white balance in both schemes:
+         white content sections, black hero/quiz/footer, gold accents */
+      --bg:#ffffff;
+      --bg-2:#faf7f0;
+      --surface:#ffffff;
+      --surface-2:#fdf9ef;
+      --ink:#1c1a16;
+      --ink-soft:#4d4638;
+      --muted:#7c7261;
+      --line:rgba(120,96,44,.28);
+      --line-soft:rgba(120,96,44,.16);
+      --gold-text:#8a6c2a;
+      --card-shadow:0 18px 44px rgba(60,45,15,.12);
+      --nav-bg:rgba(8,8,10,.88);
       --nav-ink:#f3ecdb;
     }
   }
@@ -197,8 +199,49 @@
   .scroll-cue{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); color:rgba(232,207,143,.7); animation:cue 2.6s ease-in-out infinite; }
   @keyframes cue{ 0%,100%{ transform:translate(-50%,0); opacity:.55; } 50%{ transform:translate(-50%,8px); opacity:1; } }
 
+  /* ---------- Quiz / Prompt ---------- */
+  .quiz-section{ background:#ffffff; }
+  .quiz-card{
+    background:#0a0a0c; color:#f3ecdb; border:1px solid rgba(201,164,92,.45);
+    box-shadow:0 24px 60px rgba(0,0,0,.28); padding:clamp(28px,4vw,48px);
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,54px); align-items:start;
+  }
+  .quiz-card h2{ color:#f6efdd; }
+  .quiz-card h2 em{ color:var(--gold-bright); }
+  .quiz-card .lede{ color:#d8d0ba; }
+  .quiz-eyebrow{ font-size:.72rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gold-bright); font-weight:600; display:flex; align-items:center; gap:12px; margin:0 0 16px; }
+  .quiz-eyebrow::before{ content:""; width:34px; height:1px; background:var(--gold); }
+  .quiz-progress{ display:flex; gap:8px; margin:22px 0 26px; }
+  .quiz-progress span{ height:3px; flex:1; background:rgba(201,164,92,.22); border-radius:999px; overflow:hidden; position:relative; }
+  .quiz-progress span.active::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--gold-bright),var(--gold)); }
+  .quiz-q{ font-family:var(--serif); font-size:1.55rem; line-height:1.15; color:#f6efdd; margin:0 0 16px; }
+  .quiz-opts{ display:grid; gap:10px; }
+  .quiz-opt{
+    width:100%; text-align:left; font-family:var(--sans); font-size:.96rem; font-weight:400; color:#f3ecdb;
+    background:rgba(255,255,255,.04); border:1px solid rgba(201,164,92,.28); padding:14px 16px; border-radius:2px; cursor:pointer;
+    display:flex; justify-content:space-between; gap:12px; align-items:center; transition:all .2s ease;
+  }
+  .quiz-opt:hover{ border-color:var(--gold-bright); background:rgba(201,164,92,.10); transform:translateX(3px); }
+  .quiz-opt.selected{ background:var(--gold); color:#171205; border-color:var(--gold); font-weight:500; }
+  .quiz-opt small{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; opacity:.75; }
+  .quiz-result{ display:none; }
+  .quiz-result.show{ display:block; }
+  .quiz-rec{
+    border:1px solid rgba(201,164,92,.4); background:rgba(201,164,92,.08); padding:20px; margin-top:16px;
+  }
+  .quiz-rec strong{ font-family:var(--serif); font-size:1.6rem; display:block; color:#fff; line-height:1.1; }
+  .quiz-rec p{ color:#d8d0ba; margin:8px 0 0; font-size:.95rem; }
+  .quiz-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+  .quiz-note{ font-size:.78rem; color:#a99f86; margin-top:14px; font-style:italic; }
+  .quiz-side{ border-left:1px solid rgba(201,164,92,.18); padding-left:clamp(20px,3vw,36px); }
+  .quiz-side ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:14px; }
+  .quiz-side li{ display:flex; gap:12px; font-size:.94rem; color:#d8d0ba; }
+  .quiz-side li b{ color:#fff; font-weight:500; }
+  .quiz-badge{ display:inline-flex; align-items:center; gap:8px; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; border:1px solid rgba(201,164,92,.35); border-radius:999px; padding:7px 12px; color:var(--gold-bright); }
+  @media (max-width:860px){ .quiz-card{ grid-template-columns:1fr; } .quiz-side{ border-left:0; border-top:1px solid rgba(201,164,92,.18); padding-left:0; padding-top:22px; } }
+
   /* ---------- Trusted strip ---------- */
-  .trusted{ background:var(--bg-2); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding:34px 0; }
+  .trusted{ background:#ffffff; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding:34px 0; }
   .trusted p{ text-align:center; font-size:.7rem; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); margin:0 0 20px; font-weight:500; }
   .trusted-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 44px; }
   .trusted-row span{ font-family:var(--serif); font-size:1.18rem; font-style:italic; color:var(--ink-soft); white-space:nowrap; }
@@ -549,7 +592,7 @@
   <div class="hero-content">
     <p class="hero-kicker">Luxury Live Entertainment &middot; Worldwide</p>
     <h1>The World&rsquo;s Stage <em>Awaits</em></h1>
-    <p class="hero-sub">We place exceptional live entertainers with five-star hotels, luxury resorts and the world&rsquo;s leading cruise lines &mdash; across the Middle East, South East Asia and the open sea.</p>
+    <p class="hero-sub">Exceptional live entertainment for five-star hotels and cruise lines — Middle East, South East Asia and worldwide.</p>
     <div class="hero-ctas">
       <a class="btn btn-gold" href="#artists">I&rsquo;m an Artist</a>
       <a class="btn btn-ghost" href="#clients">I&rsquo;m Booking Talent</a>
@@ -565,6 +608,81 @@
     <rect x="1" y="1" width="20" height="32" rx="10" stroke="currentColor"/>
     <circle cx="11" cy="10" r="2.4" fill="currentColor"/>
   </svg>
+</section>
+
+<!-- ================= FIND YOUR ACT — INTERACTIVE PROMPT ================= -->
+<section class="section-pad quiz-section" id="finder" style="padding-top:64px; padding-bottom:64px;">
+  <div class="wrap">
+    <div class="quiz-card reveal">
+      <div>
+        <p class="quiz-eyebrow">Interactive Prompt</p>
+        <h2>Find Your <em>Perfect Act</em></h2>
+        <p class="lede">Answer 3 quick questions — we&rsquo;ll match you instantly and open the enquiry form ready to send.</p>
+
+        <div class="quiz-progress" aria-hidden="true">
+          <span id="qp1" class="active"></span>
+          <span id="qp2"></span>
+          <span id="qp3"></span>
+        </div>
+
+        <div id="quizStep1">
+          <p class="quiz-q">1. Where will they perform?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-step="1" data-value="hotel"><span>Five-star hotel / resort</span><small>Venue</small></button>
+            <button type="button" class="quiz-opt" data-step="1" data-value="cruise"><span>Cruise ship stage</span><small>At sea</small></button>
+            <button type="button" class="quiz-opt" data-step="1" data-value="gala"><span>Gala / awards / private event</span><small>One night</small></button>
+            <button type="button" class="quiz-opt" data-step="1" data-value="bar"><span>Rooftop, lounge or beach club</span><small>Nightlife</small></button>
+          </div>
+        </div>
+
+        <div id="quizStep2" style="display:none;">
+          <p class="quiz-q">2. What atmosphere do you want?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-step="2" data-value="elegant"><span>Elegant &amp; intimate</span><small>Refined</small></button>
+            <button type="button" class="quiz-opt" data-step="2" data-value="party"><span>High-energy party</span><small>Dancefloor</small></button>
+            <button type="button" class="quiz-opt" data-step="2" data-value="relaxed"><span>Relaxed lounge vibes</span><small>Background</small></button>
+            <button type="button" class="quiz-opt" data-step="2" data-value="headline"><span>Headline wow factor</span><small>Showstopper</small></button>
+          </div>
+        </div>
+
+        <div id="quizStep3" style="display:none;">
+          <p class="quiz-q">3. What size of act?</p>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt" data-step="3" data-value="solo"><span>Solo / Duo</span><small>Intimate</small></button>
+            <button type="button" class="quiz-opt" data-step="3" data-value="trio"><span>Trio</span><small>Versatile</small></button>
+            <button type="button" class="quiz-opt" data-step="3" data-value="band"><span>Full band (4–6 piece)</span><small>Main stage</small></button>
+            <button type="button" class="quiz-opt" data-step="3" data-value="dj"><span>DJ / Speaker / Speciality</span><small>Something different</small></button>
+          </div>
+        </div>
+
+        <div class="quiz-result" id="quizResult" aria-live="polite">
+          <div class="quiz-rec">
+            <span class="sample-tag" style="background:rgba(201,164,92,.15); color:#e8cf8f; border-color:rgba(201,164,92,.35);">Your Match</span>
+            <strong id="quizRecTitle">Live Band</strong>
+            <p id="quizRecText">Perfect for your venue and atmosphere.</p>
+          </div>
+          <div class="quiz-actions">
+            <a href="#contact" class="btn btn-gold small" id="quizEnquireBtn">Enquire About This Act</a>
+            <button type="button" class="btn btn-ghost small" id="quizRestart" style="color:#f3ecdb; border-color:rgba(232,207,143,.5);">Start Again</button>
+          </div>
+          <p class="quiz-note">Tap enquire — we&rsquo;ll pre-fill the form below. No obligation, an agent replies personally.</p>
+        </div>
+      </div>
+
+      <div class="quiz-side">
+        <span class="quiz-badge">Takes 20 seconds</span>
+        <ul>
+          <li><span aria-hidden="true">✦</span><div><b>Instant match</b><br>Based on venue, mood and act size.</div></li>
+          <li><span aria-hidden="true">✦</span><div><b>Pre-filled enquiry</b><br>Your answers travel straight into the form.</div></li>
+          <li><span aria-hidden="true">✦</span><div><b>Human follow-up</b><br>A named agent contacts you — no bots.</div></li>
+        </ul>
+        <div style="margin-top:26px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-ghost small" href="#roster" style="color:#f3ecdb;">Browse Roster</a>
+          <a class="btn btn-ghost small" href="#artists" style="color:#f3ecdb;">I&rsquo;m an Artist</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= TRUSTED STRIP ================= -->
@@ -634,19 +752,19 @@
     <div class="reveal d1">
       <p class="eyebrow">Our Story</p>
       <h2>By Performers, <em>For Performers</em></h2>
-      <p class="lede">OVATION was founded by entertainers who spent years on the very stages we now book &mdash; resident bands in five-star hotel lounges, showbands at sea, cabaret acts across three continents. We know what a great contract looks like from both sides of the footlights, and we built the agency we always wished existed.</p>
+      <p class="lede">Founded by performers who have lived the contracts we now book — we know great entertainment from both sides of the stage.</p>
       <ul class="about-points">
         <li>
           <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
-          <div><strong>Artists first, always</strong><p>Transparent contracts, dedicated artist pages and a team that has lived the lifestyle &mdash; not just booked it.</p></div>
+          <div><strong>Artists first, always</strong><p>Transparent contracts and a dedicated page for every artist.</p></div>
         </li>
         <li>
           <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
-          <div><strong>Venues get certainty</strong><p>Every act is auditioned, referenced and presentation-ready before it ever appears on the roster.</p></div>
+          <div><strong>Venues get certainty</strong><p>Every act is auditioned and presentation-ready.</p></div>
         </li>
         <li>
           <span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1.5 6.5 4.5 9.5 10.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
-          <div><strong>One agent, start to finish</strong><p>From first enquiry to opening night, a named agent manages your booking personally.</p></div>
+          <div><strong>One agent, start to finish</strong><p>A named agent manages your booking personally.</p></div>
         </li>
       </ul>
       <div class="region-chips" aria-label="Regions we serve">
@@ -662,77 +780,77 @@
     <div class="centre reveal">
       <p class="eyebrow center">The Roster</p>
       <h2>Every Act, <em>One Address</em></h2>
-      <p class="lede center">From intimate duos to headline celebrity cameos &mdash; browse the roster, watch the showreels and enquire directly. Your agent handles everything from there.</p>
+      <p class="lede center">From duos to celebrity cameos — browse, watch and enquire. We handle the rest.</p>
     </div>
 
     <div class="cat-grid">
       <article class="cat-card reveal">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="17" r="3"/><circle cx="19" cy="15" r="3"/><path d="M10 17V6l9-2v11M10 10l9-2"/></svg></div>
         <h3>Live Bands</h3>
-        <p>Four, five and six-piece bands &mdash; resident showbands, party bands and elegant lounge ensembles for hotels and cruise main stages.</p>
+        <p>Resident showbands and party bands for hotels and cruise main stages.</p>
         <div class="cat-meta">4 &middot; 5 &middot; 6 Piece</div>
       </article>
 
       <article class="cat-card reveal d1">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v10"/><circle cx="12" cy="16.5" r="3.5"/><path d="M5 8c2-2.4 4.4-3.6 7-3.6S17 5.6 19 8"/></svg></div>
         <h3>Trios</h3>
-        <p>Jazz trios, string trios and vocal trios that bring refinement to cocktail hours, fine dining and private events.</p>
+        <p>Jazz, string and vocal trios for cocktail hours and fine dining.</p>
         <div class="cat-meta">Jazz &middot; Strings &middot; Vocal</div>
       </article>
 
       <article class="cat-card reveal d2">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M3.5 20c.6-3 2.4-4.5 4.5-4.5S11.9 17 12.5 20M11.5 20c.6-3 2.4-4.5 4.5-4.5s3.9 1.5 4.5 4.5"/></svg></div>
         <h3>Duos</h3>
-        <p>Piano-and-voice, acoustic and multi-instrumental duos &mdash; the most versatile format in luxury hospitality.</p>
+        <p>Versatile piano, acoustic and multi-instrumental duos.</p>
         <div class="cat-meta">Acoustic &middot; Piano &middot; Multi-Genre</div>
       </article>
 
       <article class="cat-card reveal">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
         <h3>Solo Musicians &amp; Entertainers</h3>
-        <p>Pianists, harpists, saxophonists, vocalists and one-person shows &mdash; solo artists who command a room alone.</p>
+        <p>Pianists, harpists, saxophonists and vocalists who command a room alone.</p>
         <div class="cat-meta">Piano &middot; Strings &middot; Vocals</div>
       </article>
 
       <article class="cat-card reveal d1">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/></svg></div>
         <h3>DJs</h3>
-        <p>Resident and guest DJs for rooftop bars, beach clubs, lounges and late-night venues &mdash; every genre, every energy.</p>
+        <p>Resident and guest DJs for rooftops, beach clubs and lounges.</p>
         <div class="cat-meta">Residencies &middot; Guest Sets</div>
       </article>
 
       <article class="cat-card reveal d2">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 10a8 8 0 0 1 16 0v2a5 5 0 0 1-5 5h-1"/><circle cx="9" cy="11" r=".6" fill="currentColor"/><circle cx="15" cy="11" r=".6" fill="currentColor"/><path d="M9.5 14.5c1.6 1.2 3.4 1.2 5 0"/></svg></div>
         <h3>Comedians</h3>
-        <p>Stand-up, musical comedy and cabaret comedy acts for cruise theatres, gala evenings and corporate audiences.</p>
+        <p>Stand-up and cabaret comedy for theatres and galas.</p>
         <div class="cat-meta">Stand-Up &middot; Cabaret &middot; Corporate</div>
       </article>
 
       <article class="cat-card reveal">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4l1.8 3.9 4.2.5-3.1 2.9.8 4.2L12 13.4l-3.7 2.1.8-4.2L6 8.4l4.2-.5L12 4Z"/></svg></div>
         <h3>Children&rsquo;s Entertainers</h3>
-        <p>Family-show specialists, character performers and interactive entertainers for resorts and family cruise programmes.</p>
+        <p>Family shows and character performers for resorts and cruises.</p>
         <div class="cat-meta">Family Shows &middot; Characters</div>
       </article>
 
       <article class="cat-card reveal d1">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6M2 20h20"/></svg></div>
         <h3>After-Dinner Speakers</h3>
-        <p>Compelling speakers for gala dinners, awards nights and corporate events &mdash; sport, business, adventure and beyond.</p>
+        <p>Speakers for gala dinners, awards and corporate events.</p>
         <div class="cat-meta">Gala &middot; Awards &middot; Corporate</div>
       </article>
 
       <article class="cat-card reveal d2">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.1 4.6 5 .6-3.7 3.4 1 4.9L12 14l-4.4 2.5 1-4.9L4.9 8.2l5-.6L12 3Z"/></svg></div>
         <h3>Celebrity Cameos</h3>
-        <p>Famous artists for headline cameo appearances &mdash; the name on the poster that fills the room and the press release.</p>
+        <p>Famous artists for headline cameo appearances.</p>
         <div class="cat-meta">Headline Appearances</div>
       </article>
 
       <article class="cat-card reveal">
         <div class="cat-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 10v4M9 7v10M13 4v16M17 8v8M21 11v2"/></svg></div>
         <h3>Equipment &amp; Lighting Hire</h3>
-        <p>Professional sound, backline and lighting packages &mdash; supplied, installed and crewed wherever your event takes place.</p>
+        <p>Sound, backline and lighting — supplied and crewed worldwide.</p>
         <div class="cat-meta">Sound &middot; Backline &middot; Lighting</div>
       </article>
     </div>
@@ -741,7 +859,7 @@
     <div class="directory reveal">
       <p class="eyebrow">Featured Acts</p>
       <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);">Search the <em>Roster</em></h2>
-      <p class="lede">Find the perfect act by name, style or category &mdash; then open their dedicated artist page and enquire directly.</p>
+      <p class="lede">Search by name, style or category, then enquire directly.</p>
 
       <div class="dir-controls">
         <input type="search" id="actSearch" placeholder="Search acts, styles, genres&hellip;" aria-label="Search artists" />
@@ -771,14 +889,14 @@
     <div class="centre reveal">
       <p class="eyebrow center">For Artists</p>
       <h2>Your Talent, <em>On the World Stage</em></h2>
-      <p class="lede center">Three steps between you and contracts with five-star hotels and leading cruise lines &mdash; and once approved, a dedicated page that sells you while you sleep.</p>
+      <p class="lede center">Three steps to five-star contracts — plus your own dedicated artist page.</p>
     </div>
 
     <div class="steps-grid">
       <article class="step reveal">
         <div class="step-num" aria-hidden="true">01</div>
         <h3>Upload Your Promo Material</h3>
-        <p>Create your profile and upload everything a booker needs to say yes:</p>
+        <p>Upload everything a booker needs:</p>
         <ul>
           <li>Showreel &amp; live performance videos</li>
           <li>Professional biography</li>
@@ -789,7 +907,7 @@
       <article class="step reveal d1">
         <div class="step-num" aria-hidden="true">02</div>
         <h3>Apply for Contracts</h3>
-        <p>Browse live vacancies on the jobs board and apply in one click. You receive an automated acknowledgement instantly, and our team reviews every application personally.</p>
+        <p>Browse live vacancies and apply in one click. Instant acknowledgement, personal review.</p>
         <ul>
           <li>Hotel residencies &amp; cruise contracts</li>
           <li>Instant application confirmation</li>
@@ -799,7 +917,7 @@
       <article class="step reveal d2">
         <div class="step-num" aria-hidden="true">03</div>
         <h3>Your Dedicated Artist Page</h3>
-        <p>Approved acts receive their own page on the roster &mdash; videos, biography, repertoire and photos, presented to venues and cruise lines worldwide.</p>
+        <p>Approved acts get their own page — videos, bio, repertoire and photos, seen worldwide.</p>
         <ul>
           <li>One link to share with any booker</li>
           <li>Updated whenever you are</li>
@@ -816,7 +934,7 @@
         <span class="sample-tag">Sample Artist Page</span>
         <h3>The Velvet Tones</h3>
         <div class="ap-role">Five-Piece Showband &middot; Available Worldwide</div>
-        <p>A sample of how an approved artist page will look &mdash; biography, repertoire highlights and promotional media presented in one elegant place, ready to send to any hotel or cruise booker.</p>
+        <p>How your page will look — bio, repertoire and media in one elegant place.</p>
         <div class="ap-tags" aria-label="Sample repertoire highlights">
           <span>Soul &amp; Motown</span><span>Disco Classics</span><span>Modern Chart</span><span>Jazz Standards</span><span>200+ Song Repertoire</span>
         </div>
@@ -840,24 +958,24 @@
     <div class="centre reveal">
       <p class="eyebrow center">For Clients</p>
       <h2>Booking Talent, <em>Beautifully Simple</em></h2>
-      <p class="lede center">Hotels, resorts and cruise lines: find the perfect act, send one enquiry, and a dedicated agent takes it from there.</p>
+      <p class="lede center">Find the act, send one enquiry — your agent handles the rest.</p>
     </div>
 
     <div class="steps-grid">
       <article class="step reveal">
         <div class="step-num" aria-hidden="true">01</div>
         <h3>Search the Roster</h3>
-        <p>Browse every category of act freely &mdash; bands, soloists, DJs, speakers and celebrity cameos &mdash; with showreels and full repertoire lists.</p>
+        <p>Browse bands, soloists, DJs, speakers and cameos — with showreels and repertoires.</p>
       </article>
       <article class="step reveal d1">
         <div class="step-num" aria-hidden="true">02</div>
         <h3>Send an Enquiry</h3>
-        <p>Tell us the act, the venue and the dates. Your enquiry is acknowledged automatically the moment it is sent &mdash; no chasing, no waiting.</p>
+        <p>Tell us the act, venue and dates. Instant acknowledgement.</p>
       </article>
       <article class="step reveal d2">
         <div class="step-num" aria-hidden="true">03</div>
         <h3>Your Agent Calls You</h3>
-        <p>A dedicated agent contacts you personally to refine the details, confirm availability and manage the booking through to opening night.</p>
+        <p>A dedicated agent confirms details and manages your booking to opening night.</p>
       </article>
     </div>
 
@@ -873,7 +991,7 @@
     <div class="reveal">
       <p class="eyebrow">Jobs Board</p>
       <h2>Current <em>Opportunities</em></h2>
-      <p class="lede">A preview of the live contracts board. Registered artists will apply directly from each listing; new vacancies are announced the moment they open.</p>
+      <p class="lede">A preview of the live contracts board.</p>
     </div>
 
     <div class="jobs-filters reveal" role="group" aria-label="Filter sample jobs by category">
@@ -972,24 +1090,24 @@
     <div class="centre reveal">
       <p class="eyebrow center">Beyond the Booking</p>
       <h2>Support That <em>Never Sleeps</em></h2>
-      <p class="lede center">The performance is only the beginning. Behind every contract sits a team keeping artists visible and venues connected.</p>
+      <p class="lede center">Behind every contract, a team keeping you visible and connected.</p>
     </div>
 
     <div class="support-grid">
       <article class="support-card reveal">
         <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M7 21h10"/></svg></div>
         <h3>Fully Managed Platform</h3>
-        <p>Artist applications, approvals and dedicated pages are handled through one elegant system &mdash; with automated acknowledgements at every step, so nothing is ever left waiting.</p>
+        <p>Applications and approvals in one system, with automated acknowledgements.</p>
       </article>
       <article class="support-card reveal d1">
         <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.9 5.2 3.9 8.5s-1.3 6.1-3.9 8.5c-2.6-2.4-3.9-5.2-3.9-8.5s1.3-6.1 3.9-8.5Z"/></svg></div>
         <h3>Social Media, Handled</h3>
-        <p>Our team manages the agency&rsquo;s social platforms with regular, polished content &mdash; showcasing artists, celebrating placements and keeping the roster in front of the industry.</p>
+        <p>Polished social content showcasing artists and placements.</p>
       </article>
       <article class="support-card reveal d2">
         <div class="cat-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
         <h3>Global Outreach</h3>
-        <p>We introduce the roster directly to hotels and cruise companies around the world, building the relationships that turn first enquiries into long-term residencies.</p>
+        <p>Direct introductions to hotels and cruise lines worldwide.</p>
       </article>
     </div>
   </div>
@@ -1001,7 +1119,7 @@
     <div class="reveal">
       <p class="eyebrow">Contact</p>
       <h2>Begin the <em>Conversation</em></h2>
-      <p class="lede">Artists applying for contracts and venues booking talent &mdash; one form reaches the right desk, and a dedicated agent responds personally.</p>
+      <p class="lede">One form reaches the right desk — a dedicated agent replies personally.</p>
     </div>
 
     <div class="contact-grid" style="margin-top:44px;">
@@ -1511,6 +1629,92 @@
     document.getElementById("contact").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     document.getElementById("fName").focus({ preventScroll:true });
   });
+
+  /* --- Find Your Perfect Act quiz --- */
+  var quizAnswers = { venue:"", mood:"", size:"" };
+  var quizRecTitleEl = document.getElementById("quizRecTitle");
+  var quizRecTextEl = document.getElementById("quizRecText");
+  var quizResultEl = document.getElementById("quizResult");
+  var quizEnquireBtn = document.getElementById("quizEnquireBtn");
+  var quizRestartBtn = document.getElementById("quizRestart");
+
+  function quizRecommendation(){
+    var venueMap = { hotel:"five-star hotel", cruise:"cruise stage", gala:"gala event", bar:"lounge / rooftop" };
+    var moodMap = { elegant:"elegant and intimate", party:"high-energy party", relaxed:"relaxed lounge", headline:"headline wow factor" };
+    var venueText = venueMap[quizAnswers.venue] || "your venue";
+    var moodText = moodMap[quizAnswers.mood] || "your event";
+
+    if(quizAnswers.size === "dj"){
+      if(quizAnswers.mood === "headline") return { title:"Celebrity Cameo / Headline DJ", typeIndex:4, text:"A headline name for a " + venueText + " wanting that " + moodText + " moment. We’ll shortlist available artists and handle the booking end-to-end." };
+      return { title:"Resident DJ", typeIndex:4, text:"Ideal for a " + venueText + " with a " + moodText + " brief — sunset grooves through to late night." };
+    }
+    if(quizAnswers.size === "solo"){
+      if(quizAnswers.mood === "elegant") return { title:"Solo Pianist & Vocalist", typeIndex:3, text:"A refined solo act for an " + moodText + " " + venueText + " — perfect for lounges and fine dining." };
+      if(quizAnswers.mood === "party") return { title:"Acoustic Duo", typeIndex:2, text:"A lively duo for a " + venueText + " — big sound, small footprint, endless requests." };
+      return { title:"Solo Musician / Duo", typeIndex:3, text:"Versatile and elegant for a " + venueText + " with a " + moodText + " atmosphere." };
+    }
+    if(quizAnswers.size === "trio"){
+      return { title:"Jazz / Vocal Trio", typeIndex:1, text:"A polished trio for a " + venueText + " — ideal for a " + moodText + " setting." };
+    }
+    if(quizAnswers.size === "band"){
+      if(quizAnswers.mood === "headline") return { title:"Six-Piece Showband", typeIndex:0, text:"A main-stage showband for a " + venueText + " that needs a " + moodText + " headline act." };
+      return { title:"Live Band (4–6 Piece)", typeIndex:0, text:"A full band for a " + venueText + " with a " + moodText + " brief — from dinner sets to the dancefloor." };
+    }
+    return { title:"Live Band", typeIndex:0, text:"A great all-round match for a " + venueText + "." };
+  }
+
+  function quizShowStep(n){
+    document.getElementById("quizStep1").style.display = n===1 ? "" : "none";
+    document.getElementById("quizStep2").style.display = n===2 ? "" : "none";
+    document.getElementById("quizStep3").style.display = n===3 ? "" : "none";
+    document.getElementById("qp1").classList.toggle("active", n>=1);
+    document.getElementById("qp2").classList.toggle("active", n>=2);
+    document.getElementById("qp3").classList.toggle("active", n>=3);
+  }
+  function quizFinish(){
+    var rec = quizRecommendation();
+    quizRecTitleEl.textContent = rec.title;
+    quizRecTextEl.textContent = rec.text;
+    quizResultEl.classList.add("show");
+    document.getElementById("quizStep3").style.display = "none";
+    // Wire enquiry button to pre-fill form
+    quizEnquireBtn.onclick = function(e){
+      e.preventDefault();
+      setMode("client");
+      // Try to select matching type in the client select
+      try { typeSelect.selectedIndex = rec.typeIndex; } catch(err){}
+      var venueLabel = { hotel:"Five-star hotel / resort", cruise:"Cruise ship", gala:"Gala / private event", bar:"Rooftop / lounge" }[quizAnswers.venue] || "";
+      var moodLabel = { elegant:"Elegant & intimate", party:"High-energy party", relaxed:"Relaxed lounge", headline:"Headline wow factor" }[quizAnswers.mood] || "";
+      detailInput.value = (venueLabel ? venueLabel : "Venue to confirm");
+      msgInput.value = "Hi OVATION — via the Find Your Perfect Act finder:\n• Recommended act: " + rec.title + "\n• Venue: " + (venueLabel || "—") + "\n• Atmosphere: " + (moodLabel || "—") + "\n• Act size: " + (quizAnswers.size || "—") + "\n\nPlease send availability and next steps.";
+      document.getElementById("contact").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      setTimeout(function(){ try{ document.getElementById("fName").focus({preventScroll:true}); }catch(e){} }, 350);
+      showStatus("Perfect — we’ve pre-filled your enquiry for “" + rec.title + "”. Add your name and email, then send.");
+    };
+  }
+
+  document.querySelectorAll(".quiz-opt").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var step = btn.getAttribute("data-step");
+      var val = btn.getAttribute("data-value");
+      // mark selected in group
+      document.querySelectorAll('.quiz-opt[data-step="'+step+'"]').forEach(function(b){ b.classList.remove("selected"); });
+      btn.classList.add("selected");
+      if(step==="1"){ quizAnswers.venue = val; setTimeout(function(){ quizShowStep(2); }, 180); }
+      if(step==="2"){ quizAnswers.mood = val; setTimeout(function(){ quizShowStep(3); }, 180); }
+      if(step==="3"){ quizAnswers.size = val; setTimeout(function(){ quizFinish(); }, 200); }
+    });
+  });
+  if(quizRestartBtn){
+    quizRestartBtn.addEventListener("click", function(){
+      quizAnswers = { venue:"", mood:"", size:"" };
+      quizResultEl.classList.remove("show");
+      document.querySelectorAll(".quiz-opt").forEach(function(b){ b.classList.remove("selected"); });
+      quizShowStep(1);
+      var finder = document.getElementById("finder");
+      if(finder) finder.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block:"center" });
+    });
+  }
 })();
 </script>
 </body>
